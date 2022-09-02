@@ -16,7 +16,19 @@ const {
 
 var countArray = function(array) {
     // Tu código aca:
-    
+    if (array.length === 0) {
+        return 0;
+    }
+
+    var suma = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (Array.isArray(array[i])) {
+            suma += countArray(array[i]);
+        } else {
+            suma += array[i];
+        }
+    }
+    return suma;
 }
 
 
@@ -39,8 +51,15 @@ var countArray = function(array) {
 
 var countProps = function(obj) {
     // Tu código aca:
-
+   //return Object.keys(obj).length;
+   var total = Object.keys(obj).length;
+    for( let prop in obj){
+        if(typeof obj[prop] === 'object' && !Array.isArray(obj[prop])){
+       total += countProps(obj[prop]);
+        }
+    } return total;
 }
+
 
 
 // Implementar el método changeNotNumbers dentro del prototype de LinkedList que deberá cambiar
@@ -53,8 +72,20 @@ var countProps = function(obj) {
 
 LinkedList.prototype.changeNotNumbers = function(){
     // Tu código aca:
-
+    var current = this.head;
+    var count = 0;
+while(current){
+if(Number.isNaN(Number(current.value))){
+    current.value = "Kiricocho";
+    count++;
+    }
+    current = current.next;
 }
+
+return count;
+}
+
+
 
 
 // Implementar la función mergeQueues que a partir de dos queues recibidas por parametro
@@ -67,8 +98,16 @@ LinkedList.prototype.changeNotNumbers = function(){
 
 var mergeQueues = function(queueOne, queueTwo) {
     // Tu código aca:
+    var newQueue = new Queue();
+    
+    while(queueOne.size() || queueTwo.size()){
+      if(queueOne.size()) newQueue.enqueue(queueOne.dequeue());
+      if(queueTwo.size()) newQueue.enqueue(queueTwo.dequeue())
+      }
+    return newQueue;
 
-}
+    }
+  
 
 
 // Implementar la funcion closureMult que permita generar nuevas funciones que representen
@@ -82,6 +121,9 @@ var mergeQueues = function(queueOne, queueTwo) {
 
 var closureMult = function(multiplier) {
     // Tu código aca:
+    return function(num){
+        return multiplier * num;
+    }
 
 }
 
@@ -89,8 +131,12 @@ var closureMult = function(multiplier) {
 // que debe retornar la suma total de los valores dentro de cada nodo del arbol
 BinarySearchTree.prototype.sum = function() {
     // Tu código aca:
-
-}
+    var total = this.value;
+    
+    if(this.right) total += this.right.sum();
+    if(this.left) total += this.left.sum();
+    return total;
+    }
 
 module.exports = {
     countArray,
