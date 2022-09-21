@@ -1,15 +1,15 @@
 'use strict'
 
 function BinarioADecimal(num) {
-  function BinarioADecimal(num) {
+  
     let numerogirado = num.split("").reverse().join("");
     let result = 0;
     for (let i = 0; i < numerogirado.length; i++){
-     result = result + parseInt(numerogirado[i]) * Math.pow (2, i);
+     result = result + ((numerogirado[i]) * Math.pow (2, i));
        }
        return result;  
       }
-}
+
 
 function DecimalABinario(num) {
   //let binario =  num.toString(2)
