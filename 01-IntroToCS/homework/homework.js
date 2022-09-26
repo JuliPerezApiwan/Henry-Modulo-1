@@ -7,7 +7,7 @@ function BinarioADecimal(num) {
     for (let i = 0; i < numerogirado.length; i++){
      result = result + ((numerogirado[i]) * Math.pow (2, i));
        }
-       return result;  
+       return result; 
       }
 
 
