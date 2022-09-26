@@ -12,8 +12,6 @@ function BinarioADecimal(num) {
 
 
 function DecimalABinario(num) {
-  //let binario =  num.toString(2)
-  // return binario
   let result = "";
   while (num != 0){
     result = (num % 2) + result;
