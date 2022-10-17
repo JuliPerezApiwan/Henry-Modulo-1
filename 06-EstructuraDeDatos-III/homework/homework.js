@@ -94,8 +94,7 @@ cb(this.value);
 if(array.length > 0){
   array.shift().breadthFirstForEach(cb, array);
 }
-}
-
+};
 
 
 
