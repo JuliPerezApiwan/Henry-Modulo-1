@@ -54,13 +54,15 @@ function cacheFunction(cb) {
     return n * n
   }
 
-  const squareCache = cacheFunction(square)
+  var squareCache = cacheFunction(square)
 
   squareCache(5)    // invocará a square(5), almacenará el resultado y lo retornará
   squareCache(5)    // no volverá a invocar a square, simplemente buscará en la caché cuál es el resultado de square(5) y lo retornará (tip: si usaste un objeto, podés usar hasOwnProperty) 
 
   */
 }
+
+
 
 // Bind
 
