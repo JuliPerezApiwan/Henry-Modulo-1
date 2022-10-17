@@ -79,7 +79,7 @@ for(let j = 0; j < array.length; j++){
   }
 }
 return array;
-}
+};
 
 
 // No modificar nada debajo de esta línea
